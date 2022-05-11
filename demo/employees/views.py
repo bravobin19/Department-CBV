@@ -23,92 +23,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic.edit import DeleteView
 
 
-# def get_employees(request, id):
 
-#     employees_list = employees_model.objects.filter(department_id=id)
-#     department = department_model.objects.get(department_id=id)
-#     return render(request, 'employees.html', {'employees_list': employees_list, 'department': department})
-
-
-'''
-def get_employees_form(request):
-    department_list = department_model.objects.filter()
-    return render(request, 'employees_form.html', {'department_list': department_list})
-'''
-'''
-def add_employees(request):
-    context = {
-        'error': 0,
-        'msg': ''
-    }
-
-    if request.method == 'POST':
-
-        department_id = request.POST['department']
-
-        name = request.POST['fullName']
-        age = request.POST['age']
-        avatar = request.FILES['avatar']
-        cv = request.FILES['cv']
-
-        # Check valid name
-        # Check length <=255
-        if not name:
-            context['error'] = 1
-            context['msg'] = 'Name not valid'
-        # Check Valid age
-        if age:
-            try:
-                age_datetime = parser.parser(age)
-            except:
-                context['error'] = 1
-                context['msg'] = 'Age not valid'
-        else:
-            context['error'] = 1
-            context['msg'] = 'Age not valid'
-        #
-
-        #
-        if not context['error']:
-            department = department_model.objects.get(
-                department_id=department_id)
-
-            employees = employees_model.objects.create(
-                department_id=department,
-                name=name,
-                avatar=avatar,
-                age=age,
-                cv=cv,
-            )
-            employees.save()
-            return redirect('/department/'+str(department_id))
-
-    return render(request, 'error.html', context=context)
-'''
-
-'''
-def edit_employees(request, id):
-    editemployees = employees_model.objects.get(employees_id=id)
-    return render(request, "editemployees.html", {"employees": editemployees})
-'''
-
-'''
-def update_employees(request, id):
-
-    avatar = request.FILES.get('avatar')
-    cv = request.FILES.get('cv')
-
-    employees = employees_model.objects.get(employees_id=id)
-
-    if avatar:
-        employees.avatar = avatar
-
-    if cv:
-        employees.cv = cv
-
-    employees.save()
-    return render(request, "editemployees.html", )
-'''
 
 class editEmployees(UpdateView):
     model = employees_model
@@ -163,16 +78,7 @@ class addEmployees(CreateView):
     success_url = "success/"
 
 
-''''
-class departmentForm(forms.ModelForm):
-    class Meta:
 
-        model = department_model
-
-        fields = [
-            "name"
-        ]
-'''
 
 
 class employeesDetailView(DetailView):

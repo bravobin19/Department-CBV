@@ -49,13 +49,10 @@ urlpatterns = [
     path("search/", SearchResultsView.as_view(), name="search_results"),
     # employees path
 
-    #path('addEmployeesForm/', employees.get_employees_form),
     path('addEmployees/', addEmployees.as_view()),
     path('editEmployees/<int:pk>/', editEmployees.as_view()),
-    #path('updateemployees/<int:id>', employees.update_employees),
     path("searchemployees/", searchemployees.as_view(), name="searchemployees"),
     path('department/<int:pk>', employeesDetailView.as_view(), name="listemployees"),
-    #path('department/<int:id>/', employees.get_employees, name="listemployees"),
     path('deleteEmployees/<int:pk>/', deleteEmployees.as_view(), name='delete_em'),
     path('employeesListview/', employeesListview.as_view()),
     path('addEmployees/success/', successView.as_view()),
