@@ -10,7 +10,7 @@ class employees (models.Model):
     department_id = models.ForeignKey(
         department, default=None, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=False)
-    age = models.DateField(null=True)
+    age = models.DateTimeField(null=True)
     avatar = models.ImageField(upload_to='images', default=None)
     cv = models.FileField(upload_to='files', default=None)
 
